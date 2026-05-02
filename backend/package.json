@@ -1,0 +1,17 @@
+{
+  "name": "lms-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "LMS",
+    "E-learning",
+    "Node.js",
+    "Express"
+  ],
+  "author": "AbdelRahmanMNaser",
+  "license": "ISC",
+  "description": "Backend for Learning Management System (LMS)"
+}
