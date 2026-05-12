@@ -2,17 +2,19 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "CommonJS",
-    "baseUrl": ".",
-    "paths": {
-      "@/prisma/*": ["prisma/*"],
-      "@/*": ["src/*"]
-    },
+
     "rootDir": "./src",
     "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true    
+    
+    "baseUrl": ".",
+    "paths": {
+      "@/prisma/*": ["prisma/*"],
+      "@/*": ["src/*"]
+    },
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
