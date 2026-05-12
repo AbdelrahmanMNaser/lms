@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URL")
+}
+
+model CourseReviews {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  courseId    String   @unique // UUID from Postgres
+  ratingAvg   Float    @default(0)
+  ratingCount Int      @default(0)
+  reviews     Review[]
+}
+
+type Review {
+  userId    String   // UUID from Postgres
+  rating    Int
+  title     String?
+  body      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Quiz {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  courseId     String     // UUID from Postgres
+  lessonId     String     // UUID from Postgres
+  title        String
+  timeLimitSec Int?
+  passingScore Int        @default(70)
+  questions    Question[]
+  createdAt    DateTime   @default(now())
+
+  @@index([lessonId])
+  @@index([courseId])
+}
+
+type Question {
+  type           String // single, multi, free_text
+  text           String
+  options        String[]
+  correctIndex   Int?
+  correctIndices Int[]
+  points         Int      @default(1)
+  explanation    String?
+}
+
+model QuizAttempt {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  quizId      String   @db.ObjectId
+  courseId    String   // UUID from Postgres
+  userId      String   // UUID from Postgres
+  score       Int
+  passed      Boolean
+  startedAt   DateTime @default(now())
+  completedAt DateTime?
+  answers     Answer[]
+
+  @@index([userId, quizId])
+}
+
+type Answer {
+  questionIndex Int
+  answer        Int?   
+}
