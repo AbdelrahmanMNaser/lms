@@ -23,8 +23,8 @@
   "author": "AbdelRahmanMNaser",
   "license": "ISC",
   "description": "Backend for Learning Management System (LMS)",
-
   "dependencies": {
+    "@prisma/client": "^7.8.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
@@ -38,8 +38,9 @@
     "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
     "nodemon": "^3.1.14",
-    "tsc-alias": "^1.8.8",
+    "prisma": "^7.8.0",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^6.0.3"
   }
