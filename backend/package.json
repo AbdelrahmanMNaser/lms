@@ -4,9 +4,15 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --exec \"node -r ts-node/register -r tsconfig-paths/register\" src/index.ts",
+    "build": "tsc && tsc-alias",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:sql:generate": "prisma generate --schema prisma/postgres/schema.prisma",
+    "db:sql:migrate": "prisma migrate dev --schema prisma/postgres/schema.prisma",
+    "db:sql:studio": "prisma studio --schema prisma/postgres/schema.prisma",
+    "db:nosql:generate": "prisma generate --schema prisma/mongo/schema.prisma",
+    "db:nosql:studio": "prisma studio --schema prisma/mongo/schema.prisma",
+    "db:generate": "npm run db:sql:generate && npm run db:nosql:generate"
   },
   "keywords": [
     "LMS",
@@ -17,6 +23,7 @@
   "author": "AbdelRahmanMNaser",
   "license": "ISC",
   "description": "Backend for Learning Management System (LMS)",
+
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
@@ -31,7 +38,9 @@
     "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
     "nodemon": "^3.1.14",
+    "tsc-alias": "^1.8.8",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^6.0.3"
   }
 }
