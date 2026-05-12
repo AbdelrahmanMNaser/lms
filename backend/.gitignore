@@ -3,3 +3,5 @@ node_modules/
 dist/
 build/
 *.log
+prisma/postgres/generated/
+prisma/mongo/generated/
