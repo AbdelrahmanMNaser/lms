@@ -4,9 +4,15 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --exec \"node -r ts-node/register -r tsconfig-paths/register\" src/index.ts",
+    "build": "tsc && tsc-alias",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:sql:generate": "prisma generate --config prisma/postgres/prisma.config.ts",
+    "db:sql:migrate": "prisma migrate dev --config prisma/postgres/prisma.config.ts",
+    "db:sql:studio": "prisma studio --config prisma/postgres/prisma.config.ts",
+    "db:nosql:generate": "prisma generate --config prisma/mongo/prisma.config.ts",
+    "db:nosql:studio": "prisma studio --config prisma/mongo/prisma.config.ts",
+    "db:generate": "npm run db:sql:generate && npm run db:nosql:generate"
   },
   "keywords": [
     "LMS",
@@ -18,6 +24,7 @@
   "license": "ISC",
   "description": "Backend for Learning Management System (LMS)",
   "dependencies": {
+    "@prisma/client": "^7.8.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
@@ -29,9 +36,13 @@
     "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
-    "@types/node": "^25.6.0",
+    "@types/node": "^25.7.0",
+    "dotenv-expand": "^13.0.0",
     "nodemon": "^3.1.14",
+    "prisma": "^7.8.0",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.8",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^6.0.3"
   }
 }
