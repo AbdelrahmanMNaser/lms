@@ -30,7 +30,7 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         <div
           className={clsx(
             "flex gap-4",
-            direction === "vertical" ? "flex-col" : "flex-row flex-wrap"
+            direction === "vertical" ? "flex-col" : "flex-col sm:flex-row sm:flex-wrap"
           )}
         >
           {options.map((option) => {
