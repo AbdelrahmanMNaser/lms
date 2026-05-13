@@ -70,7 +70,13 @@ const TimeInput: React.FC<TimeInputProps> = ({
         "focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary",
         error ? "border-danger" : "border-text-muted/10"
       )}>
-        <Clock size={18} className="text-text-muted mr-3 group-focus-within:text-primary transition-colors" />
+        <Clock 
+          size={18} 
+          className={clsx(
+            "mr-3 transition-colors duration-200",
+            error ? "text-danger" : "text-text-muted group-focus-within:text-primary"
+          )} 
+        />
         
         <div className="flex items-center gap-1 flex-1">
           {/* Hours Section */}
