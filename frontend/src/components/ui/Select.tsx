@@ -75,7 +75,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
             disabled={disabled}
             onClick={() => setIsOpen(!isOpen)}
             className={clsx(
-              "flex h-11 w-full items-center justify-between rounded-lg border-2 bg-white px-4 py-2 text-base transition-all duration-200",
+              "flex h-11 w-full items-center justify-between rounded-lg border-2 bg-white px-4 py-2 text-base transition-all duration-200 group",
               "focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary",
               "disabled:cursor-not-allowed disabled:bg-bg-light disabled:opacity-50",
               isOpen ? "border-primary ring-2 ring-primary/20" : "border-text-muted/10",
@@ -85,7 +85,12 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
           >
             <div className="flex items-center gap-3">
               {icon && iconPos === "left" && (
-                <span className="text-text-muted">{icon}</span>
+                <span className={clsx(
+                  "transition-colors duration-200",
+                  error ? "text-danger" : (isOpen ? "text-primary" : "text-text-muted group-focus:text-primary")
+                )}>
+                  {icon}
+                </span>
               )}
               <span className={clsx(!selectedOption && "text-text-muted/50")}>
                 {selectedOption ? selectedOption.label : placeholder}
@@ -94,11 +99,20 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
 
             <div className="flex items-center gap-2">
               {icon && iconPos === "right" && (
-                <span className="text-text-muted">{icon}</span>
+                <span className={clsx(
+                  "transition-colors duration-200",
+                  error ? "text-danger" : (isOpen ? "text-primary" : "text-text-muted group-focus:text-primary")
+                )}>
+                  {icon}
+                </span>
               )}
               <ChevronDown 
                 size={18} 
-                className={clsx("text-text-muted transition-transform duration-200", isOpen && "rotate-180")} 
+                className={clsx(
+                  "transition-all duration-200",
+                  error ? "text-danger" : (isOpen ? "text-primary" : "text-text-muted group-focus:text-primary"),
+                  isOpen && "rotate-180"
+                )} 
               />
             </div>
           </button>
