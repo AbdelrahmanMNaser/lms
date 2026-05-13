@@ -47,7 +47,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   /* Keeping direction as requested in your example, remove if not needed for RTL */
-  direction: rtl;
+  direction: ltr;
 }
 
 #root {
