@@ -93,7 +93,7 @@ export const Notification = () => (
     theme="dark"
     newestOnTop
     hideProgressBar
-    className="!fixed !left-1/2 !-translate-x-1/2 !flex !flex-col !items-center !px-0 !w-[calc(100vw-2rem)] !top-4 md:!top-8 md:!w-[320px]"
+    className="fixed! left-1/2! -translate-x-1/2! flex! flex-col! items-center! px-0! w-[calc(100vw-2rem)]! top-4! md:top-8! md:w-80!"
     toastClassName={(context) =>
       clsx(
         baseNotificationClass,
