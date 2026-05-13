@@ -3,6 +3,11 @@
 
 :root {
   --toastify-font-family: "Inter", system-ui, sans-serif;
+  --toastify-color-success: var(--color-accent);
+  --toastify-color-error: var(--color-danger);
+  --toastify-color-info: var(--color-primary);
+  --toastify-color-warning: var(--color-accent-dark);
+  --toastify-toast-bd-radius: 1rem;
 }
 
 /* ===== Udacity-Inspired Design System - Tailwind v4 Theme ===== */
