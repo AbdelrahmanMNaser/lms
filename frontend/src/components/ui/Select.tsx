@@ -35,7 +35,6 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
       disabled,
       ...props
     },
-    ref
   ) => {
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
