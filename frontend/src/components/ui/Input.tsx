@@ -18,9 +18,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {label}
           </label>
         )}
-        <div className="relative flex items-center">
+        <div className="relative flex items-center group">
           {icon && iconPos === "left" && (
-            <div className="absolute left-3 text-text-muted">
+            <div className={clsx(
+              "absolute left-3 transition-colors duration-200",
+              error ? "text-danger" : "text-text-muted group-focus-within:text-primary"
+            )}>
               {icon}
             </div>
           )}
@@ -40,7 +43,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
           {icon && iconPos === "right" && (
-            <div className="absolute right-3 text-text-muted">
+            <div className={clsx(
+              "absolute right-3 transition-colors duration-200",
+              error ? "text-danger" : "text-text-muted group-focus-within:text-primary"
+            )}>
               {icon}
             </div>
           )}
