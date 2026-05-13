@@ -24,6 +24,10 @@
   /* Text */
   --color-text-dark: #2e3d49;
   --color-text-muted: #7d97ad;
+
+  /* Status */
+  --color-danger: #f95d6a;
+  --color-danger-dark: #d1414d;
 }
 
 /* ===== Base / Reset ===== */
