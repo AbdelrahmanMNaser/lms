@@ -18,6 +18,7 @@ export interface SelectProps
   placeholder?: string;
   onChange?: (value: string | number) => void;
   disabled?: boolean;
+  name?: string;
 }
 
 const Select = forwardRef<HTMLDivElement, SelectProps>(
@@ -33,6 +34,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
       placeholder = "Select an option",
       onChange,
       disabled,
+      name,
       ...props
     },
   ) => {
@@ -144,6 +146,12 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
               )}
             </div>
           )}
+          
+          <input 
+            type="hidden" 
+            name={name} 
+            value={value || ""} 
+          />
         </div>
 
         {error && (
